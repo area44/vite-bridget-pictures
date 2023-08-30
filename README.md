@@ -1,14 +1,11 @@
 # Bridget Pictures
 
-A recreation of the interactive image gallery effect from: https://bridget.pictures by [Hyperplexed](https://codepen.io/Hyperplexed/pen/BaxROox).
+This repository contains a recreation of the interactive image gallery effect from the website [Bridget Pictures](https://bridget.pictures). The code was created by [Hyperplexed](https://codepen.io/Hyperplexed/pen/BaxROox) and is licensed under the MIT License.
 
-## Develop locally
+To develop the project locally, please follow these steps:
 
-```sh
-pnpm install
-pnpm dev
-```
+1. Install [pnpm](https://pnpm.io/) if you haven't already.
+2. Run `pnpm install` to install the project dependencies.
+3. Run `pnpm dev` to start the development server.
 
-## License
-
-Licensed under the [MIT](LICENSE) license.
+Feel free to modify and use the code according to the terms of the MIT License.
