@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react-swc'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.CI ? "/vite-bridget-pictures" : undefined,
+  base: process.env.CI ? '/vite-bridget-pictures' : undefined,
   plugins: [react()],
 })
