@@ -26,10 +26,17 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+
       - name: Install pnpm
         uses: pnpm/action-setup@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
       - name: Restore cache
         uses: actions/cache@v3
         with:
@@ -38,14 +45,17 @@ jobs:
           key: ${{ runner.os }}-vite-build-${{ hashFiles('dist') }}
           restore-keys: |
             ${{ runner.os }}-vite-dist-
+
       - name: Install dependencies
         run: pnpm install
+
       - name: Build with Vite
         run: pnpm build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: dist
+          path: './dist'
 
   deploy:
     environment:
