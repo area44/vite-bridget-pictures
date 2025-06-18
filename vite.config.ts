@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import react from "@vitejs/plugin-react-swc";
+import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.CI ? '/vite-bridget-pictures' : undefined,
-  plugins: [react()],
-})
+	base: process.env.CI ? "/vite-bridget-pictures" : undefined,
+	plugins: [react()],
+});
