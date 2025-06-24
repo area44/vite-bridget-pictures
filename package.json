@@ -16,7 +16,7 @@
 		"@vitejs/plugin-react-swc": "^3.10.2",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
-		"vite": "^6.3.5"
+		"vite": "^7.0.0"
 	},
 	"devDependencies": {
 		"@area44/biome-config": "^2.0.1",
