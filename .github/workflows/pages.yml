@@ -12,6 +12,6 @@ permissions:
 
 jobs:
   deploy:
-    uses: area44/workflow-hub/.github/workflows/vite.yml@v0.3.0
+    uses: area44/actions-lib/.github/workflows/vite.yml@v0.4.0
     with:
       run_deploy: true
