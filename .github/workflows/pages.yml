@@ -1,4 +1,4 @@
-name: Deploy Vite Site
+name: Vite
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 jobs:
-  deploy:
+  vite:
     uses: area44/actions-lib/.github/workflows/vite.yml@v0.4.0
     with:
       run_deploy: true
