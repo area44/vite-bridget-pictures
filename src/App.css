@@ -1,4 +1,3 @@
-/* Reset & background */
 body {
   background-color: black;
   margin: 0;
@@ -6,16 +5,14 @@ body {
   overflow: hidden;
 }
 
-/* Gallery container */
 .gallery {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-/* Image style */
 .image {
-  width: 40vmin; /* More mobile-friendly than 40vmin */
+  width: 40vmin;
   max-width: 90%;
   height: auto;
   position: absolute;
@@ -23,27 +20,23 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 8px;
-  outline: none; /* Prevents default blue highlight on mobile */
+  outline: none;
 }
 
-/* Hide inactive images */
 .image[data-status="inactive"] {
   display: none;
 }
 
-/* Show active image */
 .image[data-status="active"] {
   display: block;
 }
 
-/* Optional: Add smooth transitions */
 .image {
   transition:
     transform 0.3s ease,
     opacity 0.3s ease;
 }
 
-/* Tap target improvement (for mobile) */
 @media (hover: none) and (pointer: coarse) {
   .image {
     width: 90vw;
