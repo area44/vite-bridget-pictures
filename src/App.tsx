@@ -10,7 +10,7 @@ function App() {
 
   const handleKeyDown = (
     event: KeyboardEvent<HTMLImageElement>,
-    index: number,
+    index: number
   ) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault(); // Prevent page scroll on Space
