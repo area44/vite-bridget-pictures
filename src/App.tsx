@@ -1,5 +1,5 @@
 import { type KeyboardEvent, useState } from "react";
-import "./App.css";
+import "@/App.css";
 
 function App() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -40,7 +40,7 @@ function App() {
           data-index={index}
           data-status={activeIndex === index ? "active" : "inactive"}
           src={src}
-          alt={`${index}`}
+          alt={`Gallery ${index + 1}`}
           onClick={() => handleImageClick(index)}
           onKeyDown={(e) => handleKeyDown(e, index)}
         />
