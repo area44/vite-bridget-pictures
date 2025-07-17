@@ -1,22 +1,10 @@
-import { type KeyboardEvent, useState } from "react";
-import "./App.css";
+import { useEffect, useRef } from "react";
+import "@/App.css";
 
 function App() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
-  const handleImageClick = (index: number | null) => {
-    setActiveIndex(index);
-  };
-
-  const handleKeyDown = (
-    event: KeyboardEvent<HTMLImageElement>,
-    index: number,
-  ) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault(); // Prevent page scroll on Space
-      handleImageClick(index);
-    }
-  };
+  const imagesRef = useRef<(HTMLImageElement | null)[]>([]);
+  const globalIndex = useRef(0);
+  const last = useRef({ x: 0, y: 0 });
 
   const imageSources = [
     "https://images.unsplash.com/photo-1663583513676-9f6361cd859d?ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80",
@@ -31,18 +19,68 @@ function App() {
     "https://images.unsplash.com/photo-1663431905837-09cf339461ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=2207&q=80",
   ];
 
+  useEffect(() => {
+    const activate = (image: HTMLImageElement, x: number, y: number) => {
+      image.style.left = `${x}px`;
+      image.style.top = `${y}px`;
+      image.style.zIndex = String(globalIndex.current);
+      image.dataset.status = "active";
+      last.current = { x, y };
+    };
+
+    const distanceFromLast = (x: number, y: number) =>
+      Math.hypot(x - last.current.x, y - last.current.y);
+
+    const handleOnMove = (x: number, y: number) => {
+      if (distanceFromLast(x, y) > window.innerWidth / 20) {
+        const images = imagesRef.current;
+        const lead = images[globalIndex.current % images.length];
+        const tail =
+          images[(globalIndex.current - 5 + images.length) % images.length];
+
+        if (lead) activate(lead, x, y);
+        if (tail) tail.dataset.status = "inactive";
+
+        globalIndex.current++;
+      }
+    };
+
+    const handleMouseMove = (e: MouseEvent) =>
+      handleOnMove(e.clientX, e.clientY);
+
+    const handleTouchMove = (e: TouchEvent) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      if (touch) handleOnMove(touch.clientX, touch.clientY);
+    };
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchmove", handleTouchMove);
+
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, []);
+
   return (
     <div className="gallery">
       {imageSources.map((src, index) => (
         <img
           key={src}
+          ref={(el) => {
+            imagesRef.current[index] = el;
+          }}
           className="image"
-          data-index={index}
-          data-status={activeIndex === index ? "active" : "inactive"}
+          data-status="inactive"
           src={src}
-          alt={`${index}`}
-          onClick={() => handleImageClick(index)}
-          onKeyDown={(e) => handleKeyDown(e, index)}
+          alt={`Gallery ${index + 1}`}
         />
       ))}
     </div>
