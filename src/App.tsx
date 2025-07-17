@@ -36,7 +36,7 @@ function App() {
         const images = imagesRef.current;
         const lead = images[globalIndex.current % images.length];
         const tail =
-          images[(globalIndex.current - 5 + images.length) % images.length]; // Safe wrap
+          images[(globalIndex.current - 5 + images.length) % images.length];
 
         if (lead) activate(lead, x, y);
         if (tail) tail.dataset.status = "inactive";
@@ -49,16 +49,23 @@ function App() {
       handleOnMove(e.clientX, e.clientY);
 
     const handleTouchMove = (e: TouchEvent) => {
+      e.preventDefault();
       const touch = e.touches[0];
       if (touch) handleOnMove(touch.clientX, touch.clientY);
     };
 
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("touchmove", handleTouchMove);
+
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     };
   }, []);
 
