@@ -71,18 +71,22 @@ function App() {
 
   return (
     <div className="gallery">
-      {imageSources.map((src, index) => (
-        <img
-          key={src}
-          ref={(el) => {
-            imagesRef.current[index] = el;
-          }}
-          className="image"
-          data-status="inactive"
-          src={src}
-          alt={`Gallery ${index + 1}`}
-        />
-      ))}
+      {imageSources.map((src, i) => {
+        const localIndex = i;
+        return (
+          <img
+            key={src}
+            ref={(element) => {
+              const localEl = element;
+              imagesRef.current[localIndex] = localEl;
+            }}
+            className="image"
+            data-status="inactive"
+            src={src}
+            alt={`Gallery ${localIndex + 1}`}
+          />
+        );
+      })}
     </div>
   );
 }
