@@ -77,7 +77,8 @@ function App() {
           <img
             key={src}
             ref={(el) => {
-              imagesRef.current[localIndex] = el;
+              const imageElement = el;
+              imagesRef.current[localIndex] = imageElement;
             }}
             className="image"
             data-status="inactive"
