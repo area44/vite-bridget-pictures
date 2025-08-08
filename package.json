@@ -13,7 +13,7 @@
     "check": "biome check --write ."
   },
   "dependencies": {
-    "@vitejs/plugin-react-swc": "^3.11.0",
+    "@vitejs/plugin-react-swc": "^4.0.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "vite": "^7.0.6"
