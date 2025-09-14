@@ -16,13 +16,13 @@
     "@vitejs/plugin-react-swc": "^4.0.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "vite": "^7.1.4"
+    "vite": "^7.1.5"
   },
   "devDependencies": {
     "@area44/biome-config": "^2.2.5",
-    "@biomejs/biome": "^2.2.3",
-    "@types/node": "^24.3.1",
-    "@types/react": "^19.1.12",
+    "@biomejs/biome": "^2.2.4",
+    "@types/node": "^24.3.3",
+    "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "typescript": "^5.9.2"
   }
