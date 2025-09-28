@@ -22,7 +22,7 @@
     "@area44/biome-config": "^2.2.6",
     "@biomejs/biome": "^2.2.4",
     "@types/node": "^24.5.2",
-    "@types/react": "^19.1.14",
+    "@types/react": "^19.1.15",
     "@types/react-dom": "^19.1.9",
     "typescript": "^5.9.2"
   }
