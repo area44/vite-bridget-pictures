@@ -22,8 +22,8 @@ importers:
         version: 7.2.2(@types/node@24.10.0)
     devDependencies:
       '@area44/biome-config':
-        specifier: ^2.3.1
-        version: 2.3.1
+        specifier: ^2.3.2
+        version: 2.3.2
       '@biomejs/biome':
         specifier: ^2.3.4
         version: 2.3.4
@@ -42,8 +42,8 @@ importers:
 
 packages:
 
-  '@area44/biome-config@2.3.1':
-    resolution: {integrity: sha512-8RhujZNoFtiJC4feDutU9SxWZbMHIhQ1q/k4hVkP873VT627t00T/w/MdDEsyLlO6OcCHp34BawS5drs3LeK4Q==}
+  '@area44/biome-config@2.3.2':
+    resolution: {integrity: sha512-hOpHnciPF/AgnPEfHITisZJZ0u/E+XW3R03lS7mMS3XpjaQuI+qmxS6KmpNOU+nBPtnUbmVyVZZ/7WlG0oaynw==}
 
   '@biomejs/biome@2.3.4':
     resolution: {integrity: sha512-TU08LXjBHdy0mEY9APtEtZdNQQijXUDSXR7IK1i45wgoPD5R0muK7s61QcFir6FpOj/RP1+YkPx5QJlycXUU3w==}
@@ -575,7 +575,7 @@ packages:
 
 snapshots:
 
-  '@area44/biome-config@2.3.1': {}
+  '@area44/biome-config@2.3.2': {}
 
   '@biomejs/biome@2.3.4':
     optionalDependencies:
