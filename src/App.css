@@ -1,11 +1,13 @@
 body {
-  background-color: black;
+  background-color: #0a0a0a;
   margin: 0;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
   touch-action: none;
-  font-family: sans-serif;
+  font-family:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .gallery {
@@ -21,29 +23,31 @@ body {
   width: 200px;
   height: auto;
   max-width: 90vw;
-  transform: translate(-50%, -50%);
-  border-radius: 8px;
+  transform: translate(-50%, -50%) rotate(var(--rotation, 0deg));
+  border-radius: 12px;
   pointer-events: none;
   z-index: 0;
   opacity: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+    opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .image[data-status="active"] {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1.05);
+  transform: translate(-50%, -50%) scale(1.05) rotate(var(--rotation, 0deg));
 }
 
 .image[data-status="inactive"] {
   opacity: 0;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1) rotate(var(--rotation, 0deg));
 }
 
 @media (max-width: 600px) {
   .image {
-    width: 90vw;
+    width: 80vw;
     max-width: 100%;
   }
 }
